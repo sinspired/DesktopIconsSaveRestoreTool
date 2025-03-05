@@ -6,13 +6,10 @@
     <UseWPF>true</UseWPF>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
     <AssemblyTitle>IconsSaveRestore</AssemblyTitle>
-    <Description>IconsSaveRestore is a command line tool, used to save and restore position of desktop icons. https://github.com/Stanislav-Povolotsky/DesktopIconsSaveRestoreTool</Description>
+    <Description>IconsSaveRestore is a command line tool, used to save and restore position of desktop icons. https://github.com/Sinspired/DesktopIconsSaveRestoreTool</Description>
     <Product>IconsSaveRestore</Product>
     <Copyright>Copyright © 2025</Copyright>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-  </ItemGroup>
 </Project>
