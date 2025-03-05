@@ -11,14 +11,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Text.Json;
 
 namespace IconsSaveRestore.Code
 {
     internal class DesktopRegistry
     {
         private const string KeyName = @"Software\Microsoft\Windows\Shell\Bags\1\Desktop";
-
-        private readonly BinaryFormatter _formatter = new BinaryFormatter();
 
         public IDictionary<string, string> GetRegistryValues()
         {
@@ -34,14 +33,8 @@ namespace IconsSaveRestore.Code
             if (value == null)
             { return string.Empty; }
 
-            using (var stream = new MemoryStream())
-            {
-                _formatter.Serialize(stream, value);
-
-                var bytes = stream.ToArray();
-
-                return Convert.ToBase64String(bytes);
-            }
+            var json = JsonSerializer.Serialize(value);
+            return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(json));
         }
 
         public void SetRegistryValues(IDictionary<string, string> values)
@@ -60,12 +53,8 @@ namespace IconsSaveRestore.Code
             if (string.IsNullOrEmpty(stringValue))
             { return null; }
 
-            var bytes = Convert.FromBase64String(stringValue);
-
-            using (var stream = new MemoryStream(bytes))
-            {
-                return _formatter.Deserialize(stream);
-            }
+            var json = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(stringValue));
+            return JsonSerializer.Deserialize<object>(json);
         }
     }
 }
