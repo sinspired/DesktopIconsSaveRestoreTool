@@ -1,8 +1,4 @@
-﻿// 
-//  Author:     Stanislav Povolotsky <stas.dev[at]povolotsky.info>
-//  Created:       
-// 
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using IconsSaveRestore.Code;

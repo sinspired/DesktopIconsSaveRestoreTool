@@ -1,11 +1,4 @@
-﻿// This code was taken from
-// http://www.codeproject.com/Articles/639486/Save-and-restore-icon-positions-on-desktop
-// License: http://www.codeproject.com/info/cpol10.aspx
-//
-// Modified:
-//      19.06.2016 by Stanislav Povolotsky <stas.dev[at]povolotsky.info>
-//                 Removed IsolatedStorageFile to use Storage class in console application
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Linq;
